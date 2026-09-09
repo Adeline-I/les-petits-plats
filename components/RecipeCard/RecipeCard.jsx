@@ -28,7 +28,7 @@ function formatQuantity(ingredient) {
   const parts = [];
   if (quantity !== undefined && quantity !== null) parts.push(quantity);
   if (unit) parts.push(unit);
-  return parts.join(" ");
+  return parts.length > 0 ? parts.join(" ") : "-";
 }
 
 /**
@@ -64,21 +64,16 @@ export default function RecipeCard({ recipe }) {
         <div className={styles.section}>
           <span className={styles.sectionLabel}>Ingrédients</span>
           <ul className={styles.ingredientsList}>
-            {ingredients.map((ingredient, index) => {
-              const quantityLabel = formatQuantity(ingredient);
-              return (
-                <li key={index} className={styles.ingredientItem}>
-                  <span className={styles.ingredientName}>
-                    {ingredient.ingredient}
-                  </span>
-                  {quantityLabel && (
-                    <span className={styles.ingredientQuantity}>
-                      {quantityLabel}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
+            {ingredients.map((ingredient, index) => (
+              <li key={index} className={styles.ingredientItem}>
+                <span className={styles.ingredientName}>
+                  {ingredient.ingredient}
+                </span>
+                <span className={styles.ingredientQuantity}>
+                  {formatQuantity(ingredient)}
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
