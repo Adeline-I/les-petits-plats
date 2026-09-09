@@ -1,7 +1,7 @@
 .tag {
   display: inline-flex;
   align-items: center;
-  background-color: #ffd15b;
+  background-color: var(--color-brand);
   font-family: var(--font-manrope);
   font-weight: 400;
 }
@@ -15,7 +15,7 @@
   padding: 5px 15px;
   font-size: 0.75rem;
   text-align: center;
-  color: #1b1b1b;
+  color: var(--color-text);
   white-space: nowrap;
 }
 

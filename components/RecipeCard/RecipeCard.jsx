@@ -4,19 +4,39 @@ import Link from "next/link";
 import styles from "./RecipeCard.module.css";
 
 /**
- * @param {Object} ingredient
+ * @typedef {Object} Ingredient
+ * @property {string} ingredient
+ * @property {number} [quantity]
+ * @property {string} [unit]
+ */
+
+/**
+ * @typedef {Object} Recipe
+ * @property {string} slug
+ * @property {string} image
+ * @property {string} name
+ * @property {number} time
+ * @property {string} description
+ * @property {Ingredient[]} ingredients
+ */
+
+/**
+ * @param {Ingredient} ingredient
  */
 function formatQuantity(ingredient) {
   const { quantity, unit } = ingredient;
-  return [quantity, unit].filter(Boolean).join(" ");
+  const parts = [];
+  if (quantity !== undefined && quantity !== null) parts.push(quantity);
+  if (unit) parts.push(unit);
+  return parts.join(" ");
 }
 
 /**
  * @param {Object} props
- * @param {Object} props.recipe - objet recette complet (voir recipes.json)
+ * @param {Recipe} props.recipe - objet recette complet (voir recipes.json)
  */
 export default function RecipeCard({ recipe }) {
-  const { slug, image, name, time, description, ingredients } = recipe;
+  const { slug, image, name, time, description, ingredients = [] } = recipe;
 
   return (
     <Link href={`/recette/${slug}`} className={styles.card}>
@@ -44,18 +64,21 @@ export default function RecipeCard({ recipe }) {
         <div className={styles.section}>
           <span className={styles.sectionLabel}>Ingrédients</span>
           <ul className={styles.ingredientsList}>
-            {ingredients.map((ingredient, index) => (
-              <li key={index} className={styles.ingredientItem}>
-                <span className={styles.ingredientName}>
-                  {ingredient.ingredient}
-                </span>
-                {formatQuantity(ingredient) && (
-                  <span className={styles.ingredientQuantity}>
-                    {formatQuantity(ingredient)}
+            {ingredients.map((ingredient, index) => {
+              const quantityLabel = formatQuantity(ingredient);
+              return (
+                <li key={index} className={styles.ingredientItem}>
+                  <span className={styles.ingredientName}>
+                    {ingredient.ingredient}
                   </span>
-                )}
-              </li>
-            ))}
+                  {quantityLabel && (
+                    <span className={styles.ingredientQuantity}>
+                      {quantityLabel}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

@@ -1,5 +1,11 @@
 @import "./reset.css";
 
+:root {
+  --color-brand: #ffd15b;
+  --color-text: #1b1b1b;
+  --color-text-muted: #7a7a7a;
+}
+
 body {
   display: flex;
   flex-direction: column;

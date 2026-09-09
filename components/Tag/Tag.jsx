@@ -47,7 +47,7 @@ export default function Tag({
   const activeAction = actionConfig[action];
 
   return (
-    <span className={`${styles.tag} ${styles[variant]}`}>
+    <span className={`${styles.tag} ${styles[variant] ?? styles.label}`}>
       {children}
       {activeAction && onAction && (
         <button

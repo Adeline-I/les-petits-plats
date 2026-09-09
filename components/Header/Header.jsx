@@ -17,11 +17,13 @@ export default function Header({
   fullHeight = false,
   children,
 }) {
-  const isExpanded = variant === "expanded";
+  const resolvedVariant = styles[variant] ? variant : "expanded";
+  const isExpanded = resolvedVariant === "expanded";
+  const variantClass = styles[resolvedVariant];
 
   return (
     <header
-      className={`${styles.header} ${styles[variant]} ${isExpanded && fullHeight ? styles.fullHeight : ""}`}
+      className={`${styles.header} ${variantClass} ${isExpanded && fullHeight ? styles.fullHeight : ""}`}
     >
       <Image
         src="/images/header.jpg"
