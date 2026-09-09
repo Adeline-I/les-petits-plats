@@ -1,0 +1,15 @@
+.logo {
+  display: inline-block;
+  width: 207px;
+  height: 26px;
+  transition: opacity 300ms ease-out;
+}
+
+.logo:active {
+  opacity: 0.5;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+}

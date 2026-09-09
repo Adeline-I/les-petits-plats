@@ -1,1 +1,21 @@
 @import "./reset.css";
+
+:root {
+  --color-brand: #ffd15b;
+  --color-text: #1b1b1b;
+  --color-text-muted: #7a7a7a;
+  --color-black: #000000;
+  --color-white: #ffffff;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.pageContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
