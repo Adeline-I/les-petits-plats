@@ -63,7 +63,7 @@ export default function RecipeCard({ recipe }) {
 
         <div className={styles.section}>
           <span className={styles.sectionLabel}>Ingrédients</span>
-          <ul className={styles.ingredientsList}>
+          <ul className={styles.ingredientsList} role="list">
             {ingredients.map((ingredient, index) => (
               <li key={index} className={styles.ingredientItem}>
                 <span className={styles.ingredientName}>
