@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer/Footer";
 import { Anton, Manrope } from "next/font/google";
 import "./globals.css";
 
@@ -18,11 +19,16 @@ export const metadata = {
     "Trouvez des recettes de cuisine à partir des ingrédients que vous avez",
 };
 
+/**
+ * @param {Object} props
+ * @param {import("react").ReactNode} props.children
+ */
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${anton.variable} ${manrope.variable}`}>
       <body>
         <div className="pageContent">{children}</div>
+        <Footer />
       </body>
     </html>
   );
