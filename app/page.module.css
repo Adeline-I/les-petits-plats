@@ -7,11 +7,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
   padding: 0 10px;
 }
 
 .filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 65px;
 }
 
