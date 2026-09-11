@@ -1,5 +1,6 @@
 import FilterSelect from "@/components/FilterSelect/FilterSelect";
 import Header from "@/components/Header/Header";
+import RecipeCard from "@/components/RecipeCard/RecipeCard";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import recipes from "@/data/recipes.json";
 import styles from "./page.module.css";
@@ -26,6 +27,12 @@ export default function Home() {
             ))}
           </div>
           <p className={styles.count}>{recipes.length} recettes</p>
+        </div>
+
+        <div className={styles.grid}>
+          {recipes.map((recipe) => (
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          ))}
         </div>
       </main>
     </>

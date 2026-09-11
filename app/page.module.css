@@ -21,3 +21,12 @@
   font-size: 21px;
   color: var(--color-text);
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 380px);
+  justify-content: center;
+  column-gap: 48px;
+  row-gap: 66px;
+  margin-top: 60px;
+}
