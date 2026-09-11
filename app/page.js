@@ -1,8 +1,22 @@
+import Header from "@/components/Header/Header";
+import SearchBar from "@/components/SearchBar/SearchBar";
+import recipes from "@/data/recipes.json";
+
 export default function Home() {
   return (
-    <main>
-      <h1>Les Petits Plats</h1>
-      <p>Projet initialisé — {`50 recettes chargées`}.</p>
-    </main>
+    <>
+      <Header variant="expanded">
+        <h1>
+          Découvrez nos recettes
+          <br />
+          du quotidien, simples et délicieuses
+        </h1>
+        <SearchBar />
+      </Header>
+
+      <main>
+        <p>${recipes.length} recettes</p>
+      </main>
+    </>
   );
 }
