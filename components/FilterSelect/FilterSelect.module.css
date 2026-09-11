@@ -1,0 +1,16 @@
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 195px;
+  height: 56px;
+  padding: 17px 16px;
+  border: none;
+  border-radius: 11px;
+  background: var(--color-white);
+  font-family: var(--font-manrope);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
