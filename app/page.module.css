@@ -1,0 +1,23 @@
+.main {
+  background-color: #ededed;
+  padding: 60px 102px;
+}
+
+.filtersRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 65px;
+}
+
+.count {
+  font-family: var(--font-anton);
+  font-weight: 400;
+  font-size: 21px;
+  color: var(--color-text);
+}
