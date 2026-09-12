@@ -1,0 +1,85 @@
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 954px;
+  max-width: 100%;
+  height: 72px;
+  margin: 30px auto 0;
+  padding-right: 10px;
+  background-color: var(--color-white);
+  border-radius: 11px;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 25px 0 25px 35px;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: var(--font-manrope);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  caret-color: var(--color-text-muted);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input:focus::placeholder {
+  opacity: 0;
+}
+
+.input::-webkit-search-decoration,
+.input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.clearButton,
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.clearButton svg,
+.button svg {
+  pointer-events: none;
+}
+
+.clearButton {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  background: none;
+  color: var(--color-text-muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-out;
+}
+
+.clearButton.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.button {
+  width: 51px;
+  height: 52px;
+  border-radius: 10px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  transition:
+    background-color 300ms ease-out,
+    color 300ms ease-out;
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--color-brand);
+  color: var(--color-black);
+}

@@ -1,0 +1,35 @@
+.main {
+  background-color: #ededed;
+  padding: 60px clamp(10px, 5vw, 102px);
+}
+
+.filtersRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  padding: 0 10px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 65px;
+}
+
+.count {
+  font-family: var(--font-anton);
+  font-weight: 400;
+  font-size: 21px;
+  color: var(--color-text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 380px);
+  justify-content: center;
+  column-gap: 48px;
+  row-gap: 66px;
+  margin-top: 60px;
+}

@@ -9,7 +9,7 @@ export default function Logo() {
         src="/images/logo.svg"
         alt="Les Petits Plats"
         width={207}
-        height={26}
+        height={25}
         unoptimized
       />
     </Link>

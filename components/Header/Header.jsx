@@ -17,7 +17,7 @@ export default function Header({
   fullHeight = false,
   children,
 }) {
-  const resolvedVariant = styles[variant] ? variant : "expanded";
+  const resolvedVariant = variant === "compact" ? "compact" : "expanded";
   const isExpanded = resolvedVariant === "expanded";
   const variantClass = styles[resolvedVariant];
 
