@@ -1,6 +1,6 @@
 .main {
   background-color: #ededed;
-  padding: 60px 102px;
+  padding: 60px clamp(10px, 5vw, 102px);
 }
 
 .filtersRow {
