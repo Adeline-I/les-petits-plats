@@ -19,3 +19,11 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.sectionLabel {
+  font-family: var(--font-manrope);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
