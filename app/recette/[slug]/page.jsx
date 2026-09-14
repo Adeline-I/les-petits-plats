@@ -1,5 +1,6 @@
 import Header from "@/components/Header/Header";
 import RecipeItemList from "@/components/RecipeItemList/RecipeItemList";
+import SectionLabel from "@/components/SectionLabel/SectionLabel";
 import Tag from "@/components/Tag/Tag";
 import recipes from "@/data/recipes.json";
 import { formatIngredient } from "@/lib/formatIngredient";
@@ -7,6 +8,10 @@ import { formatUstensil } from "@/lib/formatUstensil";
 import { splitDescription } from "@/lib/splitDescription";
 import Image from "next/image";
 import styles from "./page.module.css";
+
+export async function generateStaticParams() {
+  return recipes.map((recipe) => ({ slug: recipe.slug }));
+}
 
 /**
  * @param {Object} props
@@ -48,8 +53,10 @@ export default async function RecipePage({ params }) {
           <h1 className={styles.title}>{name}</h1>
 
           <div className={styles.prepTime}>
-            <h2 className="sectionLabel">Temps de préparation</h2>
-            <Tag variant="label">{time}min</Tag>
+            <SectionLabel className={styles.prepTimeLabel}>
+              Temps de préparation
+            </SectionLabel>
+            <Tag variant="label">{time} min</Tag>
           </div>
 
           <RecipeItemList title="Ingrédients" items={ingredientItems} />
@@ -63,7 +70,7 @@ export default async function RecipePage({ params }) {
           />
 
           <div className={styles.section}>
-            <h2 className="sectionLabel">Recette</h2>
+            <SectionLabel>Recette</SectionLabel>
             {descriptionSentences.map((sentence, index) => (
               <p key={index} className={styles.description}>
                 {sentence}
