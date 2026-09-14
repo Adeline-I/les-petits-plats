@@ -1,13 +1,12 @@
+import SectionLabel from "@/components/SectionLabel/SectionLabel";
 import Tag from "@/components/Tag/Tag";
+import { formatIngredient } from "@/lib/formatIngredient";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./RecipeCard.module.css";
 
 /**
- * @typedef {Object} Ingredient
- * @property {string} ingredient
- * @property {number} [quantity]
- * @property {string} [unit]
+ * @typedef {import("@/lib/formatIngredient").Ingredient} Ingredient
  */
 
 /**
@@ -19,17 +18,6 @@ import styles from "./RecipeCard.module.css";
  * @property {string} description
  * @property {Ingredient[]} ingredients
  */
-
-/**
- * @param {Ingredient} ingredient
- */
-function formatQuantity(ingredient) {
-  const { quantity, unit } = ingredient;
-  const parts = [];
-  if (quantity !== undefined && quantity !== null) parts.push(quantity);
-  if (unit) parts.push(unit);
-  return parts.length > 0 ? parts.join(" ") : "-";
-}
 
 /**
  * @param {Object} props
@@ -57,23 +45,25 @@ export default function RecipeCard({ recipe }) {
         <h2 className={styles.title}>{name}</h2>
 
         <div className={styles.section}>
-          <span className={styles.sectionLabel}>Recette</span>
+          <SectionLabel as="span">Recette</SectionLabel>
           <p className={styles.description}>{description}</p>
         </div>
 
         <div className={styles.section}>
-          <span className={styles.sectionLabel}>Ingrédients</span>
+          <SectionLabel as="span">Ingrédients</SectionLabel>
           <ul className={styles.ingredientsList} role="list">
-            {ingredients.map((ingredient, index) => (
-              <li key={index} className={styles.ingredientItem}>
-                <span className={styles.ingredientName}>
-                  {ingredient.ingredient}
-                </span>
-                <span className={styles.ingredientQuantity}>
-                  {formatQuantity(ingredient)}
-                </span>
-              </li>
-            ))}
+            {ingredients.map((ingredient, index) => {
+              const { name: ingredientName, quantity } =
+                formatIngredient(ingredient);
+              return (
+                <li key={index} className={styles.ingredientItem}>
+                  <span className={styles.ingredientName}>
+                    {ingredientName}
+                  </span>
+                  <span className={styles.ingredientQuantity}>{quantity}</span>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

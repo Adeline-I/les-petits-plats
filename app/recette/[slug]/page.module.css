@@ -1,0 +1,66 @@
+.main {
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+  padding: 60px clamp(10px, 5vw, 102px);
+}
+
+.imageWrapper {
+  flex: 0 1 45%;
+  min-width: 0;
+  max-width: 606px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 21px;
+}
+
+.details {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--font-anton);
+  font-weight: 400;
+  font-size: 1.625rem;
+  color: var(--color-black);
+}
+
+.prepTime {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prepTimeLabel {
+  margin-bottom: 0;
+}
+
+.section {
+  margin-top: 32px;
+}
+
+.description {
+  font-family: var(--font-manrope);
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .imageWrapper {
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+}
