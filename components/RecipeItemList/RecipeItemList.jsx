@@ -1,3 +1,4 @@
+import SectionLabel from "@/components/SectionLabel/SectionLabel";
 import styles from "./RecipeItemList.module.css";
 
 /**
@@ -14,7 +15,7 @@ import styles from "./RecipeItemList.module.css";
 export default function RecipeItemList({ title, items }) {
   return (
     <div className={styles.section}>
-      <h2 className="sectionLabel">{title}</h2>
+      <SectionLabel>{title}</SectionLabel>
       <ul className={styles.list} role="list">
         {items.map((item, index) => (
           <li key={index} className={styles.item}>

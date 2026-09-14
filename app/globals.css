@@ -19,13 +19,3 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-.sectionLabel {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-manrope);
-  font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}

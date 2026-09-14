@@ -1,3 +1,4 @@
+import SectionLabel from "@/components/SectionLabel/SectionLabel";
 import Tag from "@/components/Tag/Tag";
 import { formatIngredient } from "@/lib/formatIngredient";
 import Image from "next/image";
@@ -44,12 +45,12 @@ export default function RecipeCard({ recipe }) {
         <h2 className={styles.title}>{name}</h2>
 
         <div className={styles.section}>
-          <span className="sectionLabel">Recette</span>
+          <SectionLabel as="span">Recette</SectionLabel>
           <p className={styles.description}>{description}</p>
         </div>
 
         <div className={styles.section}>
-          <span className="sectionLabel">Ingrédients</span>
+          <SectionLabel as="span">Ingrédients</SectionLabel>
           <ul className={styles.ingredientsList} role="list">
             {ingredients.map((ingredient, index) => {
               const { name: ingredientName, quantity } =
