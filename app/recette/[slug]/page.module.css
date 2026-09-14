@@ -37,6 +37,10 @@
   gap: 10px;
 }
 
+.prepTime :global(.sectionLabel) {
+  margin-bottom: 0;
+}
+
 .section {
   margin-top: 32px;
 }
