@@ -45,16 +45,6 @@
   margin-top: 29px;
 }
 
-.sectionLabel {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-manrope);
-  font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
 .description {
   font-family: var(--font-manrope);
   font-weight: 400;
