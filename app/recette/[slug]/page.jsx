@@ -7,6 +7,7 @@ import { formatIngredient } from "@/lib/formatIngredient";
 import { formatUstensil } from "@/lib/formatUstensil";
 import { splitDescription } from "@/lib/splitDescription";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 
 export async function generateStaticParams() {
@@ -22,7 +23,7 @@ export default async function RecipePage({ params }) {
   const recipe = recipes.find((r) => r.slug === slug);
 
   if (!recipe) {
-    return <p>Recette introuvable</p>;
+    notFound();
   }
 
   const { image, name, time, description, ingredients, ustensils, appliance } =
