@@ -1,15 +1,19 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import styles from "./SearchBar.module.css";
 
-export default function SearchBar() {
+/**
+ * @param {Object} props
+ * @param {string} props.value
+ * @param {(value: string) => void} props.onChange
+ */
+export default function SearchBar({ value, onChange }) {
   const inputRef = useRef(/** @type {HTMLInputElement | null} */ (null));
-  const [value, setValue] = useState("");
   const hasValue = value.length > 0;
 
   function handleClear() {
-    setValue("");
+    onChange("");
     inputRef.current?.focus();
   }
 
@@ -19,7 +23,7 @@ export default function SearchBar() {
         ref={inputRef}
         type="search"
         value={value}
-        onChange={(event) => setValue(event.target.value)}
+        onChange={(event) => onChange(event.target.value)}
         placeholder="Rechercher une recette, un ingrédient, ..."
         className={styles.input}
         aria-label="Rechercher une recette"
@@ -48,7 +52,7 @@ export default function SearchBar() {
           />
         </svg>
       </button>
-      <button type="button" className={styles.button} aria-label="Rechercher">
+      <span className={styles.button} aria-hidden="true">
         <svg
           width="28"
           height="28"
@@ -66,7 +70,7 @@ export default function SearchBar() {
             stroke="currentColor"
           />
         </svg>
-      </button>
+      </span>
     </div>
   );
 }

@@ -43,7 +43,6 @@
   justify-content: center;
   flex-shrink: 0;
   border: none;
-  cursor: pointer;
 }
 
 .clearButton svg,
@@ -52,6 +51,7 @@
 }
 
 .clearButton {
+  cursor: pointer;
   width: 24px;
   height: 24px;
   margin-right: 12px;
@@ -78,8 +78,7 @@
     color 300ms ease-out;
 }
 
-.button:hover,
-.button:focus-visible {
+.button:hover {
   background-color: var(--color-brand);
   color: var(--color-black);
 }
