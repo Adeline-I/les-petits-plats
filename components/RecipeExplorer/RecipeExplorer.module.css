@@ -33,3 +33,11 @@
   row-gap: 66px;
   margin-top: 60px;
 }
+
+.noResults {
+  margin-top: 60px;
+  padding: 0 10px;
+  font-family: var(--font-manrope);
+  font-size: 1rem;
+  color: var(--color-text);
+}

@@ -11,6 +11,7 @@ import styles from "./RecipeCard.module.css";
 
 /**
  * @typedef {Object} Recipe
+ * @property {number} id
  * @property {string} slug
  * @property {string} image
  * @property {string} name
