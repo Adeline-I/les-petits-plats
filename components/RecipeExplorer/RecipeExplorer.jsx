@@ -41,11 +41,13 @@ export default function RecipeExplorer({ recipes }) {
               <FilterSelect key={label} label={label} />
             ))}
           </div>
-          <p className={styles.count}>{filteredRecipes.length} recettes</p>
+          <p className={styles.count} aria-live="polite" aria-atomic="true">
+            {filteredRecipes.length} recettes
+          </p>
         </div>
 
         {hasNoResults ? (
-          <p className={styles.noResults}>
+          <p className={styles.noResults} aria-live="polite" aria-atomic="true">
             Aucune recette ne contient « {query.trim()} », vous pouvez chercher
             « tarte aux pommes », « poisson », etc.
           </p>
