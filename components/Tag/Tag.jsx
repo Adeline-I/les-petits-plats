@@ -48,7 +48,7 @@ export default function Tag({
 
   return (
     <span className={`${styles.tag} ${styles[variant] ?? styles.label}`}>
-      {children}
+      <span className={styles.text}>{children}</span>
       {activeAction && onAction && (
         <button
           type="button"

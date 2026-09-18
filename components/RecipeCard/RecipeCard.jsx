@@ -18,6 +18,8 @@ import styles from "./RecipeCard.module.css";
  * @property {number} time
  * @property {string} description
  * @property {Ingredient[]} ingredients
+ * @property {string} appliance
+ * @property {string[]} ustensils
  */
 
 /**
