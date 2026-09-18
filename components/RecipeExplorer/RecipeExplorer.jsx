@@ -5,7 +5,7 @@ import Header from "@/components/Header/Header";
 import RecipeCard from "@/components/RecipeCard/RecipeCard";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import Tag from "@/components/Tag/Tag";
-import { filterRecipes } from "@/lib/filterRecipes";
+import { filterRecipes, MIN_QUERY_LENGTH } from "@/lib/filterRecipes";
 import { filterRecipesByTags } from "@/lib/filterRecipesByTags";
 import { getFilterTags } from "@/lib/getFilterTags";
 import { useState } from "react";
@@ -141,7 +141,7 @@ export default function RecipeExplorer({ recipes }) {
  */
 function getNoResultsMessage(query, hasSelectedTags) {
   const trimmedQuery = query.trim();
-  const hasQuery = trimmedQuery.length >= 3;
+  const hasQuery = trimmedQuery.length >= MIN_QUERY_LENGTH;
 
   if (hasQuery && hasSelectedTags) {
     return `Aucune recette ne contient « ${trimmedQuery} » avec les filtres sélectionnés.`;
