@@ -5,9 +5,9 @@ import Header from "@/components/Header/Header";
 import RecipeCard from "@/components/RecipeCard/RecipeCard";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import Tag from "@/components/Tag/Tag";
-import { filterRecipes, MIN_QUERY_LENGTH } from "@/lib/filterRecipes";
-import { filterRecipesByTags } from "@/lib/filterRecipesByTags";
+import { MIN_QUERY_LENGTH } from "@/lib/filterRecipes";
 import { getFilterTags } from "@/lib/getFilterTags";
+import { searchRecipes } from "@/lib/searchRecipes";
 import { useState } from "react";
 import styles from "./RecipeExplorer.module.css";
 
@@ -44,11 +44,7 @@ export default function RecipeExplorer({ recipes }) {
     }),
   );
 
-  const recipesMatchingQuery = filterRecipes(recipes, query);
-  const filteredRecipes = filterRecipesByTags(
-    recipesMatchingQuery,
-    selectedTags,
-  );
+  const filteredRecipes = searchRecipes(recipes, query, selectedTags);
   const hasNoResults = filteredRecipes.length === 0;
 
   const availableTags = getFilterTags(filteredRecipes);
@@ -98,7 +94,7 @@ export default function RecipeExplorer({ recipes }) {
             ))}
           </div>
           <p className={styles.count} aria-live="polite" aria-atomic="true">
-            {filteredRecipes.length} recettes
+            {getRecipeCountLabel(filteredRecipes.length)}
           </p>
         </div>
 
@@ -131,6 +127,14 @@ export default function RecipeExplorer({ recipes }) {
       </main>
     </>
   );
+}
+
+/**
+ * @param {number} count
+ * @returns {string}
+ */
+function getRecipeCountLabel(count) {
+  return `${count} ${count > 1 ? "recettes" : "recette"}`;
 }
 
 /**
