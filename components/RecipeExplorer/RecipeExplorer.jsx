@@ -94,7 +94,7 @@ export default function RecipeExplorer({ recipes }) {
             ))}
           </div>
           <p className={styles.count} aria-live="polite" aria-atomic="true">
-            {filteredRecipes.length} recettes
+            {getRecipeCountLabel(filteredRecipes.length)}
           </p>
         </div>
 
@@ -127,6 +127,14 @@ export default function RecipeExplorer({ recipes }) {
       </main>
     </>
   );
+}
+
+/**
+ * @param {number} count
+ * @returns {string}
+ */
+function getRecipeCountLabel(count) {
+  return `${count} ${count > 1 ? "recettes" : "recette"}`;
 }
 
 /**
