@@ -46,7 +46,7 @@
   text-align: center;
 }
 
-.content :global(h1) {
+.content h1 {
   font-family: var(--font-anton);
   font-weight: 400;
   font-size: 2.75rem;
